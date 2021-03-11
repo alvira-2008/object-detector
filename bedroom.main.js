@@ -15,11 +15,16 @@ function setup(){
 function draw(){
     image(img, 0, 0, 640, 420);
 
-    fill("blue");
-    noFill();
-    stroke("blue");
-    text("Bed", 5, 65);
-    rect(0, 50, 550, 300);
+    for(i=0; i<objects.length; i++){
+        document.getElementById("status").innerHTML = "Status: Objects Detected";
+        document.getElementById("number_objects").innerHTML = "Number of Objects Detected are: " + objects.length;          
+        fill("blue");
+        percent = floor(objects[i].confidence * 100);
+        text(objects[i].label + " " + percent + "%", objects[i].x + 15, objects[i].y + 15);
+        noFill();
+        stroke("blue");
+        rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+    }
 }
 
 function modelLoaded(){

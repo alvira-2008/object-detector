@@ -15,17 +15,16 @@ function setup(){
 function draw(){
     image(img, 0, 0, 640, 420);
 
-    fill("skyblue");
-    noFill();
-    stroke("skyblue");
-    text("Plant", 5, 200);
-    rect(5, 200, 150, 150);
-
-    fill("black");
-    noFill();
-    stroke("black");
-    text("Shoe Rack", 310, 20);
-    rect(300, 0, 280, 400);
+    for(i=0; i<objects.length; i++){
+        document.getElementById("status").innerHTML = "Status: Objects Detected";
+        document.getElementById("number_objects").innerHTML = "Number of Objects Detected are: " + objects.length;          
+        fill("blue");
+        percent = floor(objects[i].confidence * 100);
+        text(objects[i].label + " " + percent + "%", objects[i].x + 15, objects[i].y + 15);
+        noFill();
+        stroke("blue");
+        rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+    }
 }
 
 function modelLoaded(){
