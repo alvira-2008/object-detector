@@ -1,0 +1,28 @@
+.heading
+{
+font-size: 23px;
+width: 100%;
+margin: 0px;
+}
+
+#status
+{
+font-size: 18px;
+}
+
+body{
+    background-size: cover;
+    background-position: center;
+}
+
+canvas{
+    box-shadow: 10px 10px 10px hotpink;
+    border-radius: 10px;
+}
+
+.back_button{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: large;
+}
